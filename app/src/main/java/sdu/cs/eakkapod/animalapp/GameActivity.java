@@ -60,7 +60,7 @@ public class GameActivity extends AppCompatActivity {
             choice.add("นก");
             choice.add("หมา");
             choice.add("แมว");
-            choice.add("ยุ้ง");
+            choice.add("ยุง");
             Collections.shuffle(choice);//กำหนดให้R andom choice
             btn1.setText(choice.remove(0));
             btn2.setText(choice.remove(0));
@@ -162,7 +162,7 @@ public class GameActivity extends AppCompatActivity {
 
             ArrayList<String> choice = new ArrayList<String>();//ตัวแปล Choice เป็น Array สำหรับ Random Choice
             choice.add("สิงโต");
-            choice.add("ยุ่ง");
+            choice.add("ยุง");
             choice.add("แมว");
             choice.add("ช้าง");
             Collections.shuffle(choice);//กำหนดให้R andom choice
@@ -173,12 +173,12 @@ public class GameActivity extends AppCompatActivity {
 
         }//End if
         if (qid == 8) {
-            answer = "ยุ้ง";
+            answer = "ยุง";
             questionImageView.setImageResource(R.drawable.mosquito);//แสดงรูปเงาที่เป็นคำถาม
             mediaPlayer = MediaPlayer.create(this, R.raw.mosquito);//แสดงเสียงที่ตรงกับภาพคำถาม
 
             ArrayList<String> choice = new ArrayList<String>();//ตัวแปล Choice เป็น Array สำหรับ Random Choice
-            choice.add("ยุ้ง");
+            choice.add("ยุง");
             choice.add("นก");
             choice.add("หมา");
             choice.add("วัว");
@@ -198,7 +198,7 @@ public class GameActivity extends AppCompatActivity {
             choice.add("หมู");
             choice.add("แกะ");
             choice.add("แมว");
-            choice.add("ยุ้ง");
+            choice.add("ยุง");
             Collections.shuffle(choice);//กำหนดให้R andom choice
             btn1.setText(choice.remove(0));
             btn2.setText(choice.remove(0));
