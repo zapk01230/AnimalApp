@@ -1,6 +1,9 @@
 package sdu.cs.eakkapod.animalapp;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.media.MediaPlayer;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -228,8 +231,7 @@ public class GameActivity extends AppCompatActivity {
 
 
     public void playSound(View view) {//เป็น Method สำหรับแสคงเสียง
-        mediaPlayer.start();
-    }//End playSound
+        mediaPlayer.start(); }//End playSound
 
     public void choiceAns(View view) {//เป็น Method สำหรับตรวจคำตอบ และรวมคะแนน
         Button button = (Button) view;
@@ -239,13 +241,36 @@ public class GameActivity extends AppCompatActivity {
             score++;//เพิ่มที่ละ 1 คะแนน
         }
 
-        if (qid.isEmpty()) {//ถ้าทำครบทุกข้อ
-            Toast.makeText(getApplicationContext(), "คุณได้" + score + "คะแนน", Toast.LENGTH_SHORT).show();
+        if (qid.isEmpty()) {//ถ้าทำครบทุกข้อ //Empty แปลว่า ว่าง
+            //Toast.makeText(getApplicationContext(), "คุณได้" + score + "คะแนน", Toast.LENGTH_SHORT).show();
+            dialogboxScore();
         } else {//ถ้ายังทำไม่ครบทั้ง 10 ข้อ ให้ทำต่่อ
             setQeustion(qid.remove(0));
 
         }
-
-
     }//End choiceAns() method
+
+    private void dialogboxScore() { //แสดงคะแนนในรูป Dialobox
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("สรุปคะแนน");
+        builder.setMessage("คุณได้ " + score + " คะแนน")
+            .setCancelable(false)
+            .setPositiveButton("เล่นอีกคร้ง", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Intent intent = getIntent();
+                    finish();
+                    startActivity(intent);
+                }
+            })
+            .setNegativeButton("ออกจากเกม", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    finish();
+                }
+            });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+
+    }//End dialogboxScore() method
 }//End Class
